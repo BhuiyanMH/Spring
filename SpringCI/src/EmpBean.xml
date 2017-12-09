@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans> 
+
+   <bean id="emp" class="Employee">
+   
+      <constructor-arg value="10" type ="int" ></constructor-arg>
+      <constructor-arg value="Sabbir"></constructor-arg>
+      <constructor-arg> <ref bean="addr" /></constructor-arg>
+      <constructor-arg>
+      
+      	<list>
+      		<value>Gaming</value>
+      		<value>Programming</value>
+      	</list>
+      	
+      </constructor-arg>   
+      
+   </bean>
+   
+   
+   <bean id="addr" class="Address">
+  
+  		<constructor-arg value="Shariatpur"></constructor-arg>
+  		<constructor-arg value="Dhaka"></constructor-arg>
+  		<constructor-arg value="Bangladesh"></constructor-arg>
+      
+   </bean>
+   
+   
+   <bean id="empInc" class="Employee">
+   
+      <constructor-arg value="12" type ="int" ></constructor-arg>
+      <constructor-arg value="Sazzad"></constructor-arg>
+      <constructor-arg>
+      	<list>
+      		<value>Chatting</value>
+      		<value>Programming</value>
+      	</list>
+      </constructor-arg>   
+      
+   </bean>
+   
+   <bean id = "emp2" class="Employee" parent = "empInc">
+   		<constructor-arg ref="addr"></constructor-arg>
+   </bean>
+   
+	<!-- For map use key, value. For map with object key and value, use key-ref and value-ref  --> 
+</beans>
